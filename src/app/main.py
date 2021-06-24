@@ -15,6 +15,6 @@ async def startup():
 async def shutdown():
     await database.disconnect()
 
-app.include_router(ping.router)
+app.include_router(ping.router, prefix="/debug", tags=["debug"])
 
 app.include_router(notes.router, prefix="/notes", tags=["notes"])
